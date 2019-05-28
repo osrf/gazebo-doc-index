@@ -1,0 +1,36 @@
+---
+layout: "wrapper"
+---
+
+<div class="container container-fluid">
+        <div class="row">
+            <div class="col-xs-12">
+            <h1>{{page.title}}</h1>
+            <hr>
+            </div>
+        </div>
+        <div class="container container-fluid">
+            {% for subcategory in page.subcategories %}
+            <h3 class="subcat-title">{{subcategory.title}}</h3>
+            <br>
+            <ul class="item-ul">
+                <div class="col-xs-11 item-container">
+                    {% for item in subcategory.items %}                   
+                    <li>
+                        <a style="text-decoration: none" href={{item.url}}>
+                            <p class="item-title">
+                                {% if item.star %}
+                                <img src="http://packages.osrfoundation.org/gz_big_index/star-128.png" width=1%>
+                                {% endif %}
+                                {{item.title}}
+                            </p>
+                        </a>
+                    </li>
+                    <p class="item-desc">{{item.desc}}</p>
+                    {% endfor %}
+                </div>
+            </ul>
+            {% endfor %}
+        </div>
+    </div>
+    
