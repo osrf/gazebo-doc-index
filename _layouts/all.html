@@ -11,7 +11,7 @@ layout: "wrapper"
         </div>
         <div class="container-fluid">
             {% for cat in site.categories %}
-                {% unless cat.title == 'All links' || cat.subcategories | size == 0%}
+                {% unless cat.title == 'All links'%}
                 {% assign subcat_size = cat.subcategories | size %}
                 {% unless subcat_size == 0%}
                     <h3 class="subcat-title"><b>{{cat.title}}</b></h3>
