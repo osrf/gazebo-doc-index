@@ -118,5 +118,14 @@ h1 {
 }
 
 .item-container {
+  margin-top: 10px;
   margin-bottom: 20px;
+}
+
+.cat-divider {
+  margin-top:0px;
+}
+
+.cat-title:hover {
+  color: #f78e1e;
 }

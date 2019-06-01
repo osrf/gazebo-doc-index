@@ -1,0 +1,45 @@
+---
+layout: "wrapper"
+---
+
+<div class="container container-fluid">
+        <div class="row">
+            <div class="col-xs-12">
+            <h1>{{page.title}}</h1>
+            <hr>
+            </div>
+        </div>
+        <div class="container-fluid">
+            {% for cat in site.categories %}
+                {% unless cat.title == 'All links' || cat.subcategories | size == 0%}
+                {% assign subcat_size = cat.subcategories | size %}
+                {% unless subcat_size == 0%}
+                    <h3 class="subcat-title"><b>{{cat.title}}</b></h3>
+                    <div class="container-fluid" style="margin-top: 20px">
+                        {% for subcategory in cat.subcategories %}
+                        <h3 class="subcat-title">{{subcategory.title}}</h3>
+                        <ul>
+                            <div class="col-xs-12 item-container">
+                                {% for item in subcategory.items %}                   
+                                <li>
+                                    <p class="item-title">
+                                        {% if item.star %}
+                                        <img src="http://packages.osrfoundation.org/gz_big_index/star-128.png" width=1%>
+                                        {% endif %}
+                                        <a style="text-decoration: none" href={{item.url}}>                                    
+                                            {{item.title}}
+                                        </a>
+                                    </p>
+                                </li>
+                                <p class="item-desc">{{item.desc}}</p>
+                                {% endfor %}
+                            </div>
+                        </ul>
+                        {% endfor %}
+                    </div><hr class="cat-divider">
+                    {% endunless %}
+                    {% endunless %}
+                {% endfor %}
+                </div>
+            </div>
+            

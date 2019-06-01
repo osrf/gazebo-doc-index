@@ -113,4 +113,22 @@ subcategories:
         desc: 'Target for advanced users: how to use latest gazebo version with the different ROS distributions'
         star: true
 
+  - title: "Installing on Windows"
+    items:
+      - title: 'Windows7 + MSVC12 installation'
+        url: 'http://gazebosim.org/tutorials?tut=install_on_windows&cat=install'
+        desc: 'Instructions to build gazebo in Windows7 using MSVC12'
+        star: true
+
+      - title: 'MSVC versions different than MSVC12'
+        url: 'http://answers.gazebosim.org/question/TODO' # todo
+        desc: 'Status of the support for different versions of Microsoft Visual Studio C++ compiler'
+        star: false
+
+      - title: 'Windows10 or other Windows versions installation'
+        url: 'http://answers.gazebosim.org/question/TODO' # todo
+        desc: 'Status of the support for different versions of Microsoft Windows, particularly Windows 10.'
+        star: false
+
+
 ---
