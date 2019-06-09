@@ -1,4 +1,7 @@
 ---
+# Contribution guidelines:
+# https://github.com/osrf/gz-bigindex/blob/master/CONTRIBUTING.md 
+
 title: "Models: create static objects in Gazebo (links)"
 desc: "How to create or define static objects in the Gazebo simulator using different approaches (GUI, code, ...) and tools."
 subcategories: 

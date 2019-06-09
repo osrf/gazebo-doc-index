@@ -4,40 +4,16 @@ This repository contains code for Gazebo's documentation index.
 
 Status: Under development
 
-### Getting started
+## Getting started
 
 #### Prerequisites
 - [Jekyll](https://jekyllrb.com)
 
+#### Setup
 ```
 git clone https://github.com/osrf/gz-bigindex.git
 cd gz-bigindex
 bundle exec jekyll serve
-```
-
-### Structure
-
-```
-.
-├── _includes
-├── _layouts
-│   ├── category.html
-│   ├── home.html
-│   └── wrapper.html
-├── _categories
-│   ├── installing_gazebo.md
-│   ├── models_import.md
-│   ├── models_joints.md
-│   ├── models_links.md
-│   └── sensors.md
-├── assets
-├── .gitignore
-├── README.md
-├── _config.yml
-├── Gemfile
-├── 404.html
-├── index.html
-└── style.css
 ```
 
 ### _categories
@@ -51,3 +27,8 @@ This folder stores the HTML layouts of the home page and the category page along
 ### _includes
 
 This folder contains HTML code for the navbar and the footer.
+
+## Contribution guidelines
+
+Refer to [CONTRIBUTING.md](https://github.com/osrf/gz-bigindex/blob/master/CONTRIBUTING.md) for information about how to contribute to the project.
+

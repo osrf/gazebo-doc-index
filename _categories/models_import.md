@@ -1,4 +1,7 @@
 ---
+# Contribution guidelines:
+# https://github.com/osrf/gz-bigindex/blob/master/CONTRIBUTING.md 
+
 title: "Models: import your existing models"
 desc: "How to import previously existing models created with Gazebo or other external tools (Solidworks, Google Sketchup, ...)."
 subcategories: 

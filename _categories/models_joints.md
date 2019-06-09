@@ -1,4 +1,7 @@
 ---
+# Contribution guidelines:
+# https://github.com/osrf/gz-bigindex/blob/master/CONTRIBUTING.md 
+
 title: "Models: defining dynamic relationships between parts (joints)"
 desc: "Instructions to define the dynamic relationships between the different static parts in gazebo."
 subcategories: 
