@@ -57,7 +57,7 @@ Changes can be suggested to files in the ```_categories``` directory. This is wh
 - category 3
 ---
 
-Each category file has the following variables -
+Each **category** file has the following variables -
 
 ```title```: Title of category
 
@@ -67,7 +67,7 @@ Each category file has the following variables -
 
 ---
 
-Each subcategory can be defined using -
+Each **subcategory** can be defined using -
 
 ```title```: Title of subcategory
 
@@ -75,7 +75,7 @@ Each subcategory can be defined using -
 
 ---
 
-Each item can be defined using -
+Each **index item** can be defined using -
 
 ```title```: Title of index item
 
