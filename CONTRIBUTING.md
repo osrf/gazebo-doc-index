@@ -36,7 +36,7 @@ The documentation index intends to brings together all of Gazebo's learning reso
 
 ### How to contribute
 
-Contributions can be made by updating the index items, their descriptions, categories or subcategories, using pull requests.
+Contributions can be made by opening a pull request for updating the index items, their descriptions, categories or subcategories.
 
 The items of documentation index has been divided into categories and sub-categories.
 
