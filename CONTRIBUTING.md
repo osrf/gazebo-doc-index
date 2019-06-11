@@ -1,10 +1,13 @@
 ## Contribution guidelines
 
-This document contains guidelines for contributing to Gazebo's [documentation index](https://osrf.github.io/gz-bigindex/). 
+This document contains guidelines for contributing to Gazebo's [documentation
+index](https://osrf.github.io/gz-bigindex/).
 
 ### About
 
-The documentation index intends to brings together all of Gazebo's learning resources in one place. This will help beginners as well as professionals in finding the best sources of information by just a browser quicksearch.
+The documentation index intends to brings together all of Gazebo's learning
+resources in one place. This will help beginners as well as professionals in
+finding the best sources of information by just a browser quicksearch.
 
 ### Repository structure
 
@@ -36,24 +39,31 @@ The documentation index intends to brings together all of Gazebo's learning reso
 
 ### How to contribute
 
-Contributions can be made by opening a pull request for updating the index items, their descriptions, categories or subcategories.
+Contributions can be made by opening a pull request for updating the index
+items, their descriptions, categories or subcategories. For contributions
+or question related to the structure or other parts not related to the
+content please use the github issue tracker.
 
-The items of documentation index has been divided into categories and sub-categories.
+The items of documentation index has been divided into categories and
+sub-categories.
 
-Changes can be suggested to files in the ```_categories``` directory. This is where the index items are stored in markdown files with yml-based frontmatter. Each file in this directory represents a category and contains information about sub-categories and corresponding items.
+Changes can be suggested to files in the ```_categories``` directory. This is
+where the index items are stored in markdown files with yml-based frontmatter.
+Each file in this directory represents a category and contains information
+about sub-categories and corresponding items.
 
 #### Index structure
 
 - category 1
     - subcategory 1
-        - item 1 
+        - item 1
         - item 2
 
     - subcategory 2
-        - item 1 
+        - item 1
         - item 2
 
-- category 2 
+- category 2
 - category 3
 ---
 
@@ -94,9 +104,9 @@ This is an example category file -
 ---
 title: "Models: import your existing models"
 desc: "How to import previously existing models created with Gazebo or other external tools (Solidworks, Google Sketchup etc)."
-subcategories: 
+subcategories:
   - title: "Importing models in Gazebo"
-    items: 
+    items:
       - title: 'Model database structure'
         url: 'http://gazebosim.org/tutorials?tut=model_structure&cat=build_robot'
         desc: 'The gazebo model database description.'
@@ -105,10 +115,10 @@ subcategories:
       - title: 'Nested models in gazebo: using SDFormat'
         url: 'http://gazebosim.org/tutorials?tut=nested_model&cat=build_robot'
         desc: 'How to compose a model in sdformat composed by different models.'
-        star: false 
+        star: false
 
   - title: "Creating models from code"
-    items: 
+    items:
       - title: 'Import SolidWorks models to Gazebo'
         url: 'http://blogs.solidworks.com/teacher/2014/05/solidworks-to-gazebo-robot-simulation.html'
         desc: 'How to import the SolidWorks models into the Gazebo simulator.'
@@ -120,7 +130,7 @@ subcategories:
         star: false
 
   - title: "Importing models from Google SketchUp"
-    items: 
+    items:
     - title: 'Importing Google 3D Warehouse model'
       url: 'http://projects.csail.mit.edu/pr2/wiki/index.php?title=Importing_a_Google_3D_Warehouse_Model_%28.skp%29_into_Gazebo'
       desc: 'Importing a .skp (Google warehouse format) into Gazebo'
