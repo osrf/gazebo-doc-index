@@ -3,6 +3,14 @@
 This document contains guidelines for contributing to Gazebo's [documentation
 index](https://osrf.github.io/gz-bigindex/).
 
+### Table of contents
+
+- [About](https://github.com/osrf/gz-bigindex/blob/master/CONTRIBUTING.md#about)
+- [Repository structure](https://github.com/osrf/gz-bigindex/blob/master/CONTRIBUTING.md#repository-structure)
+- [How to contribute](https://github.com/osrf/gz-bigindex/blob/master/CONTRIBUTING.md#how-to-contribute)
+  - [Index structure](https://github.com/osrf/gz-bigindex/blob/master/CONTRIBUTING.md#index-structure)
+  - [Preview changes](https://github.com/osrf/gz-bigindex/blob/master/CONTRIBUTING.md#index-structure)
+
 ### About
 
 The documentation index intends to brings together all of Gazebo's learning
@@ -34,8 +42,6 @@ finding the best sources of information by just a browser quicksearch.
 ├── 404.html
 └── index.html
 ```
-
-
 
 ### How to contribute
 
@@ -140,3 +146,15 @@ subcategories:
 
 Rendering of the above category data can be seen [here](https://osrf.github.io/gz-bigindex/categories/models_import.html).
 
+#### How to preview changes
+
+Before opening a pull request, proposed changes to the documentation index can
+be previewed by serving the jekyll project on a local server.
+
+```
+cd gz-bigindex
+jekyll serve
+```
+
+For instructions to set up the jekyll project on your machine, refer to the
+repository's [README](https://github.com/osrf/gz-bigindex#getting-started).

@@ -1,5 +1,19 @@
 # Design Specification Document: Gazebo Documentation Index
 
+## Table of contents
+- [Introduction]()
+- [Background]()
+- [Purpose]()
+- [Implementation]()
+  - [Technology stack]()
+  - [Index structure]()
+  - [Collaboration and Maintenance]()
+  - [User interface]()
+  - [Repository structure]()
+  - [Hosting]()
+- [Progress]()
+
+
 ## 1. Introduction
 
 The Gazebo project has a vast set of learning resources in the form of a
@@ -56,12 +70,13 @@ tutorials, third-party blog posts, Github issues' comments and the Gazebo answer
 - Index integrity tests
 - Continuous integration
 
-[AWS](https://aws.amazon.com/): 
-- Deployment and hosting
-
 ### 4.2 Index structure
 
-The documentation index items have been divided by categories and subcategories.
+The documentation index is two levels deep. The first level of abstraction is
+the **category** level and the second level is the **subcategory** level.
+
+```Category >> Subcategory >> Index entries```
+
 - Each category comprises of subcategories and each subcategory comprises of 
 the corresponding index items. 
 - Each category and index item also contain a brief description of the same.
@@ -84,7 +99,33 @@ requirements of the project.
 - category 3
 ```
 
-### 4.3 Repository structure
+
+#### All links page
+
+To allow for the user to be able to find all relevant content on one webpage,
+an 'All links' page has been added. This can help in finding any help using a
+browser quicksearch.
+
+### 4.3 Collaboration and maintenance
+Index entries are being saved using yml-based files for easy open-source
+maintenance and collaboration.
+
+Contributions can be made by updating the index items, their descriptions,
+categories or subcategories, using pull requests. 
+
+For information about how to contribute to the project, contribution guidelines
+can be referred to [here](https://github.com/osrf/gz-bigindex/blob/master/CONTRIBUTING.md).
+
+### 4.4 User interface
+
+A simple, clean and responsive user interface has been developed as can be seen
+in the images below.
+
+![Screenshot 2019-06-10 at 9 15 54 PM](https://user-images.githubusercontent.com/24846546/59219032-0e7c2500-8bb1-11e9-88e9-2de2ed3bf3c7.png)
+
+![Screenshot 2019-06-10 at 9 17 13 PM](https://user-images.githubusercontent.com/24846546/59219041-1340d900-8bb1-11e9-8604-c0fb612f1a63.png)
+
+### 4.5 Repository structure
 
 ```
 .
@@ -103,11 +144,6 @@ requirements of the project.
 ├── assets
 │   └── css
 │       └── style.css
-├── .gitignore
-├── README.md
-├── _config.yml
-├── Gemfile
-├── 404.html
 └── index.html
 ```
 
@@ -117,16 +153,11 @@ This folder stores the HTML layouts of the home page and the category page
 along with a wrapper layout that is the parent layout which includes the navbar
 and footer components.
 
-```_includes/```
-
-This folder contains HTML code for the navbar and the footer.
-
 
 ```_categories```
 
 This folder is where information about all the categories is stored. Each file
 represents a category and contains information about sub-categories and items.
-
 
 This is an example category file -
 
@@ -162,37 +193,11 @@ subcategories:
         star: false
 ---
 ```
-#### All links page
-
-To allow for the user to be able to find all relevant content on one webpage,
-an 'All links' page has been added. This can help in finding any help using a
-browser quicksearch.
-
-### 4.4 Collaboration and maintenance
-Index entries are being saved using yml-based files for easy open-source
-maintenance and collaboration.
-
-Contributions can be made by updating the index items, their descriptions,
-categories or subcategories, using pull requests. 
-
-For information about how to contribute to the project, contribution guidelines
-can be referred to [here](https://github.com/osrf/gz-bigindex/blob/master/CONTRIBUTING.md).
-
-### 4.5 User interface
-
-A simple, clean and responsive user interface has been developed as can be seen
-in the images below.
-
-![Screenshot 2019-06-10 at 9 15 54 PM](https://user-images.githubusercontent.com/24846546/59219032-0e7c2500-8bb1-11e9-88e9-2de2ed3bf3c7.png)
-
-![Screenshot 2019-06-10 at 9 17 13 PM](https://user-images.githubusercontent.com/24846546/59219041-1340d900-8bb1-11e9-8604-c0fb612f1a63.png)
 
 ### 4.6 Hosting
 
-Currently, the Jekyll website is being served using Github pages. The website
-can be accessed [here](https://osrf.github.io/gz-bigindex/).
+The website is being served using Github pages. It can be accessed [here](https://osrf.github.io/gz-bigindex/).
 
-The alpha version, once ready is planned to be hosted on an AWS instance.
 
 ## 5. Progress
 
