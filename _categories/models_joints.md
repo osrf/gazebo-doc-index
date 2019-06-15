@@ -2,8 +2,8 @@
 # Contribution guidelines:
 # https://github.com/osrf/gz-bigindex/blob/master/CONTRIBUTING.md 
 
-title: "Models: defining dynamic relationships between parts (joints)"
-desc: "Instructions to define the dynamic relationships between the different static parts in gazebo."
+title: "Models: Defining dynamic relationships between parts (joints)"
+desc: "Instructions to define the dynamic relationships between the different static parts in Gazebo."
 subcategories: 
   - title: "Dynamic modelling concepts"
     items: 
@@ -19,14 +19,14 @@ subcategories:
 
   - title: "Creating joints from code"
     items: 
-      - title: 'SDFormat: marked language to define models'
+      - title: 'SDFormat: Marked language to define models'
         url: 'http://gazebosim.org/tutorials?tut=build_model&cat=build_robot'
         desc: 'Description of the SDFormat marked language used to define objects and robots in Gazebo.'
         star: true
 
-      - title: 'SDFormat: joint language specification'
+      - title: 'SDFormat: Joint language specification'
         url: 'http://sdformat.org/spec?ver=1.6&elem=joint'
-        desc: 'Link to the official sdformat language specification for static parts (joints)'
+        desc: 'Link to the official SDFormat language specification for static parts (joints)'
         star: false
 
       - title: 'SDFormat: API'

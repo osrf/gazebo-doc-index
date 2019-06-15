@@ -2,7 +2,7 @@
 # Contribution guidelines:
 # https://github.com/osrf/gz-bigindex/blob/master/CONTRIBUTING.md 
 
-title: "Sensors: the sensor catalogue"
+title: "Sensors: The sensor catalogue"
 desc: "How to add already implemented sensors (camera, lasers, IMU, ...) to the gazebo models."
 subcategories: 
   - title: "Altimeter Gazebo sensor"

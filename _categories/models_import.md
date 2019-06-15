@@ -2,8 +2,8 @@
 # Contribution guidelines:
 # https://github.com/osrf/gz-bigindex/blob/master/CONTRIBUTING.md 
 
-title: "Models: import your existing models"
-desc: "How to import previously existing models created with Gazebo or other external tools (Solidworks, Google Sketchup, ...)."
+title: "Models: Import your existing models"
+desc: "How to import previously existing models created with Gazebo or other external tools (Solidworks, Google Sketchup etc.)."
 subcategories: 
   - title: "Importing models in Gazebo"
     items: 
@@ -12,7 +12,7 @@ subcategories:
         desc: 'The gazebo model database description.'
         star: true
 
-      - title: 'Nested models in gazebo: using SDFormat'
+      - title: 'Nested models in Gazebo: using SDFormat'
         url: 'http://gazebosim.org/tutorials?tut=nested_model&cat=build_robot'
         desc: 'How to compose a model in sdformat composed by different models.'
         star: false 
@@ -29,10 +29,10 @@ subcategories:
         desc: 'Generate URDF (superset of SDFormat) and use it in Gazebo'
         star: false
 
-  - title: "Importing models from Google SketchUp"
-    items: 
-    - title: 'Importing Google 3D Warehouse model'
-      url: 'http://projects.csail.mit.edu/pr2/wiki/index.php?title=Importing_a_Google_3D_Warehouse_Model_%28.skp%29_into_Gazebo'
-      desc: 'Importing a .skp (Google warehouse format) into Gazebo'
-      star: true
+  # - title: "Importing models from Google SketchUp"
+  #   items: 
+  #   - title: 'Importing Google 3D Warehouse model'
+  #     url: 'http://projects.csail.mit.edu/pr2/wiki/index.php?title=Importing_a_Google_3D_Warehouse_Model_%28.skp%29_into_Gazebo'
+  #     desc: 'Importing a .skp (Google warehouse format) into Gazebo'
+  #     star: true
 ---
