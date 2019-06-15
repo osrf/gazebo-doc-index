@@ -7,15 +7,15 @@ desc: "How to add already implemented sensors (camera, lasers, IMU, ...) to the 
 subcategories: 
   - title: "Altimeter Gazebo sensor"
     items: 
-      - title: 'Basic shapes in Gazebo simulator'
-        url: 'http://packages.osrfoundation.org/gz_big_index/4_sensors.html' # check
-        desc: 'How to insert and use an altimiter simulated sensor in Gazebo'
-        star: true
+      # - title: 'Basic shapes in Gazebo simulator'
+      #   url: 'http://packages.osrfoundation.org/gz_big_index/4_sensors.html' # check
+      #   desc: 'How to insert and use an altimiter simulated sensor in Gazebo'
+      #   star: true
 
-      - title: 'Camera Gazebo sensor'
-        url: 'http://gazebosim.org/tutorials?TODO' # check
-        desc: 'How to insert and use a simulated camera in Gazebo'
-        star: true
+      # - title: 'Camera Gazebo sensor'
+      #   url: 'http://gazebosim.org/tutorials?TODO' # check
+      #   desc: 'How to insert and use a simulated camera in Gazebo'
+      #   star: true
 
       - title: 'Camera sensor with distorsion in Gazebo'
         url: 'http://gazebosim.org/tutorials?tut=camera_distortion'
@@ -29,10 +29,10 @@ subcategories:
   
   - title: "Sensors integrated with ROS (gazebo_ros_pkgs)"
     items: 
-      - title: 'Differences between the gazebo_ros_pkgs sensors and gazebo native sensors'
-        url: 'http://answers.gazebosim.org/question/TODO' # check
-        desc: 'How are the gazebo_ros_pkgs sensors different from the native Gazebo sensors and why is recommended to use them in ROS'
-        star: true
+      # - title: 'Differences between the gazebo_ros_pkgs sensors and gazebo native sensors'
+      #   url: 'http://answers.gazebosim.org/question/TODO' # check
+      #   desc: 'How are the gazebo_ros_pkgs sensors different from the native Gazebo sensors and why is recommended to use them in ROS'
+      #   star: true
         
       - title: 'Camera sensor in gazebo_ros_pkgs'
         url: 'http://gazebosim.org/tutorials?tut=ros_gzplugins#Camera'
