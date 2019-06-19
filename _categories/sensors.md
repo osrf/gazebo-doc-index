@@ -12,10 +12,10 @@ subcategories:
       #   desc: 'How to insert and use an altimiter simulated sensor in Gazebo'
       #   star: true
 
-      # - title: 'Camera Gazebo sensor'
-      #   url: 'http://gazebosim.org/tutorials?TODO' # check
-      #   desc: 'How to insert and use a simulated camera in Gazebo'
-      #   star: true
+      - title: 'Camera Gazebo sensor'
+        url: 'http://gazebosim.org/tutorials?tut=camera_save&cat=sensors#Createaworldwithacamera'
+        desc: 'How to insert and use a simulated camera in Gazebo'
+        star: true
 
       - title: 'Camera sensor with distorsion in Gazebo'
         url: 'http://gazebosim.org/tutorials?tut=camera_distortion'

@@ -106,10 +106,11 @@ h1 {
 
 .item-title {
   color: #428bca;
+  font-size: 18px;
 }
 
-.item-title {
-  font-size: 18px;
+.item-title:hover {
+  color: #f78e1e;
 }
 
 .subcat-title {
@@ -132,4 +133,9 @@ h1 {
 
 ul {
   padding-left: 5px;
+}
+
+.tag-title:hover {
+  color: #f78e1e;
+  text-decoration: none;
 }

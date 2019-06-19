@@ -15,7 +15,12 @@ subcategories:
       - title: 'Nested models in Gazebo: using SDFormat'
         url: 'http://gazebosim.org/tutorials?tut=nested_model&cat=build_robot'
         desc: 'How to compose a model in sdformat composed by different models.'
-        star: false 
+        star: false
+      
+      - title: 'Import meshes into Gazebo'
+        url: 'http://gazebosim.org/tutorials?tut=import_mesh'
+        desc: 'How to import 3D meshes into Gazebo.'
+        star: false
 
   - title: "Creating models from code"
     items: 

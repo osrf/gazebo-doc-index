@@ -29,10 +29,10 @@ subcategories:
         desc: 'Link to the official sdformat API'
         star: false
         
-      # - title: 'Generating multiple identical objects'
-      #   url: 'http://sdformat.org/api' # check
-      #   desc: 'How you can create a population of models by using the SDF'
-      #   star: false
+      - title: 'Generating multiple identical objects'
+        url: 'http://gazebosim.org/tutorials?tut=model_population&cat=build_world'
+        desc: 'How you can create a population of models by using the SDF'
+        star: false
   
   - title: "Gazebo graphical tools for creating models"
     items: 
@@ -41,10 +41,10 @@ subcategories:
         desc: 'Integrated GUI in Gazebo for creating models'
         star: true
 
-      # - title: 'The Gazebo Building Editor'
-      #   url: 'http://packages.osrfoundation.org/gz_big_index/1_static.html'
-      #   desc: 'Integrated GUI in Gazebo for creating walls and buildings' # check
-      #   star: true
+      - title: 'The Gazebo Building Editor'
+        url: 'http://gazebosim.org/tutorials?tut=building_editor'
+        desc: 'Integrated GUI in Gazebo for creating walls and buildings'
+        star: true
 
       - title: 'The Gazebo SVG struding tool'
         url: 'http://gazebosim.org/tutorials?tut=extrude_svg'
