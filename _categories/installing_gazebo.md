@@ -42,7 +42,7 @@ subcategories:
         desc: 'Instructions to install Gazebo7 on Debian Jessie'
         star: false
       
-      - title: 'Compiling Gazebo from source on Linux'
+      - title: ''
         url: 'http://gazebosim.org/tutorials?tut=install_from_source&cat=install#InstallGazebofromsource%28UbuntuandMac%29'
         desc: 'How to compile gazebo from source on a Linux distribution.'
         star: false

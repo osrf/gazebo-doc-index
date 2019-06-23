@@ -7,7 +7,9 @@ before_install:
   - bundler update --bundler
 
 install: gem install jekyll html-proofer
-script: jekyll build && htmlproofer ./_site --url-ignore "/gz-bigindex/*/"
+script: 
+  - jekyll build && htmlproofer ./_site --url-ignore "/gz-bigindex/*/"
+  - bundle exec rspec --format doc
 
 # branch whitelist, only for GitHub Pages
 branches:
