@@ -118,15 +118,16 @@ subcategories:
         desc: 'Instructions to build gazebo in Windows7 using MSVC12'
         star: true
 
-      # - title: 'MSVC versions different than MSVC12'
-      #   url: 'http://answers.gazebosim.org/question/TODO' # todo
-      #   desc: 'Status of the support for different versions of Microsoft Visual Studio C++ compiler'
-      #   star: false
+      # uncommenting this to demonstrated test failure for invalid urls in the index
+      - title: 'MSVC versions different than MSVC12'
+        url: 'http://answers.gazebosim.org/question/TODO' # todo
+        desc: 'Status of the support for different versions of Microsoft Visual Studio C++ compiler'
+        star: false
 
-      # - title: 'Windows10 or other Windows versions installation'
-      #   url: 'http://answers.gazebosim.org/question/TODO' # todo
-      #   desc: 'Status of the support for different versions of Microsoft Windows, particularly Windows 10.'
-      #   star: false
+      - title: 'Windows10 or other Windows versions installation'
+        url: 'https://bitbucket.org/osrf/gazebo_tutorials/issues/92/remove-or-update-windows-installation'
+        desc: 'Status of the support for different versions of Microsoft Windows, particularly Windows 10.'
+        star: false
 
 
 ---
