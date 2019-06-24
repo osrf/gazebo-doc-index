@@ -101,7 +101,7 @@ subcategories:
         desc: 'Analysis of Gazebo versions for ROS + Gazebo integration .'
         star: true
 
-      - title: 'The version fully supported by ROS Indigo, Jade or Kinetic'
+       - title: 'The version fully supported by ROS Kinetic, Lunar or Melodic'  
         url: 'http://gazebosim.org/tutorials?tut=ros_wrapper_versions&cat=connect_ros#UsingthedefaultGazeboversionforaROSdistribution'
         desc: 'Which is the Gazebo version fully supported by all binary packages distributed by ROS'
         star: true
