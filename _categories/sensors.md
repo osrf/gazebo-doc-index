@@ -7,10 +7,6 @@ desc: "How to add already implemented sensors (camera, lasers, IMU, ...) to the 
 subcategories: 
   - title: "Altimeter Gazebo sensor"
     items: 
-      - title: 'Basic shapes in Gazebo simulator'
-        url: 'http://gazebosim.org/tutorials?tut=build_world&cat=build_world#AddingSimpleShapes'
-        desc: 'How to add simple shapes to the world'
-        star: true
 
       - title: 'Camera Gazebo sensor'
         url: 'http://gazebosim.org/tutorials?tut=camera_save&cat=sensors#Createaworldwithacamera'
