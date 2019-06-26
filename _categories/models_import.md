@@ -34,11 +34,6 @@ subcategories:
         desc: 'Generate URDF (superset of SDFormat) and use it in Gazebo'
         star: false
 
-      - title: 'Basic shapes in Gazebo simulator'
-        url: 'http://gazebosim.org/tutorials?tut=build_world&cat=build_world#AddingSimpleShapes'
-        desc: 'How to add simple shapes to the world'
-        star: true
-
   # - title: "Importing models from Google SketchUp"
   #   items: 
   #   - title: 'Importing Google 3D Warehouse model'
