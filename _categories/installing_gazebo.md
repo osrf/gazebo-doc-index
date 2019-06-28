@@ -64,10 +64,10 @@ subcategories:
         desc: 'Short command to run in your terminal to install Gazebo on Mac'
         star: true
 
-      # - title: 'Supported OSX versions'
-      #   url: 'http://answers.gazebosim.org/question/TODO'
-      #   desc: 'Which OSX versions are supported by Gazebo'
-      #   star: true
+      - title: 'Supported OSX versions'
+        url: 'http://gazebosim.org/tutorials?cat=install&tut=install_on_mac'
+        desc: 'Which OSX versions are supported by Gazebo'
+        star: true
 
       - title: 'Brew installation step by step'
         url: 'http://gazebosim.org/tutorials?tut=install_on_mac&cat=install#Alternativeinstallation:step-by-step'
