@@ -9,13 +9,15 @@ index](https://osrf.github.io/gz-bigindex/).
 - [Repository structure](https://github.com/osrf/gz-bigindex/blob/master/CONTRIBUTING.md#repository-structure)
 - [How to contribute](https://github.com/osrf/gz-bigindex/blob/master/CONTRIBUTING.md#how-to-contribute)
   - [Index structure](https://github.com/osrf/gz-bigindex/blob/master/CONTRIBUTING.md#index-structure)
-  - [Preview changes](https://github.com/osrf/gz-bigindex/blob/master/CONTRIBUTING.md#index-structure)
+  - [Preview changes](https://github.com/osrf/gz-bigindex/blob/master/CONTRIBUTING.md#preview-changes)
+  - [Test the changes](https://github.com/osrf/gz-bigindex/blob/master/CONTRIBUTING.md#test-the-changes)
 
 ### About
 
 The documentation index intends to brings together all of Gazebo's learning
-resources in one place. This will help beginners as well as professionals in
-finding the best sources of information by just a browser quicksearch.
+resources in one place, in an organised fashion. This will help beginners as
+well as professionals in finding the best sources of information by just a 
+browser quicksearch.
 
 ### Repository structure
 
@@ -146,7 +148,7 @@ subcategories:
 
 Rendering of the above category data can be seen [here](https://osrf.github.io/gz-bigindex/categories/models_import.html).
 
-#### How to preview changes
+#### Preview changes
 
 Before opening a pull request, proposed changes to the documentation index can
 be previewed by serving the jekyll project on a local server.
@@ -158,3 +160,13 @@ jekyll serve
 
 For instructions to set up the jekyll project on your machine, refer to the
 repository's [README](https://github.com/osrf/gz-bigindex#getting-started).
+
+####  Test the changes
+
+Automated tests for validating index structure integrity and external links can be run locally by using the following commands - 
+
+```bundle install``` (first time)
+```bundle exec rspec --format doc``` (index integrity tests)
+```jekyll build && htmlproofer ./_site --url-ignore "/gz-bigindex/*/"``` ([html-proofer](https://github.com/gjtorikian/html-proofer) tests)
+
+Note: Pull requests can't be merged if they don't pass the automated tests.

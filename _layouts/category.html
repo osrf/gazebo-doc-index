@@ -20,21 +20,30 @@ layout: "wrapper"
             <h3 class="subcat-title">{{subcategory.title}}</h3>            
             <ul>
                 <div class="col-xs-12 item-container">
-                    {% for item in subcategory.items %}                   
+                    {% for item in subcategory.items %} 
+                    <div style="margin-bottom: 15px">
+
+                                      
                     <li>
                         <p class="item-title">
                             {% if item.star %}
-                            <img src="http://packages.osrfoundation.org/gz_big_index/star-128.png" width=1%>
+                            <img src="{{ "/assets/img/star-128.png" | prepend: site.baseurl }}" alt="star_logo" width=1%>
                             {% endif %}
-                            <a style="text-decoration: none" href={{item.url}}>                                    
+                            <a class="item-title" style="text-decoration: none" href={{item.url}}>                                    
                                 {{item.title}}
                             </a>
                         </p>
                     </li>
                     <p class="item-desc">{{item.desc}}</p>
-                    {% endfor %}
+                    <!-- Tags:
+                    {% for tag in item.tags %}
+                        <a href="{{tag.url}}"  class="tag-title"> <span >{{tag}}</span></a>
+                    {% endfor %} -->
+                    <!-- <br> -->
                 </div>
-            </ul>
+                {% endfor %}
+            </div>
+        </ul>
             {% endfor %}
         </div>
     </div>
