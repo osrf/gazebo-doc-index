@@ -13,16 +13,24 @@ parser.add_argument('--num_pages', default=1, help="Number of pages for which re
 args = parser.parse_args()
 
 for page in range(int(args.num_pages)):
+    
     rake = Rake(min_length = args.min_keyw_length, max_length= args.max_keyw_length, ranking_metric=Metric.WORD_DEGREE)
+    
     if not args.sort_by_updated:
         r = requests.get(url = "https://api.bitbucket.org/2.0/repositories/osrf/gazebo/issues?sort=-votes&page=" + str(page+1)) 
     else:
-        r = requests.get(url = "https://api.bitbucket.org/2.0/repositories/osrf/gazebo/issues&page=" + str(page+1)) 
+        r = requests.get(url = "https://api.bitbucket.org/2.0/repositories/osrf/gazebo/issues?page=" + str(page+1)) 
         
     data = r.json()
+    
+    if not r.ok:
+        raise Exception("Request returned " + str(r.status_code) + " error.")
+
     for i,j in enumerate(data['values']):
-        print ("Issue title: " + str(page * 20 + i + 1) + ': ' + j['title'])
+
+        print (str(page * 20 + i + 1) + ': ' + "Issue title: " + j['title'] + " (#" + str(j['id']) + ")")
         print ('Votes: ' + str(j['votes']))
+
         if args.only_title:
             rake.extract_keywords_from_text(j['title'])
             keyw_title = rake.get_ranked_phrases_with_scores()
