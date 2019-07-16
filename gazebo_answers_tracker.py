@@ -51,6 +51,9 @@ for page in range(int(args.num_pages)):
         print(bcolors.BOLD, end="") # bold for easy visibility
         if (len(top_keyw_q_title) > 0):
             print(list(zip(*top_keyw_q_title))[1])
+        else:
+            print("None")
+            print(bcolors.ENDC + "Question title: " + bcolors.BOLD + question_title + bcolors.ENDC)
         print(bcolors.ENDC)
 
         # scraping RSS feed of question
@@ -72,9 +75,13 @@ for page in range(int(args.num_pages)):
                 top_keyw_q_answer = [a for a in keyw_q_answer if a[0] >= args.min_score]
 
                 print('Keywords of answer ' + str(ind) + ' are: ')
+                print(bcolors.BOLD)
                 if (len(top_keyw_q_answer) > 0):
-                    print(bcolors.BOLD)
                     print(list(zip(*top_keyw_q_answer))[1])
-                    print(bcolors.ENDC)
+                else:
+                    print("None")
+                    print(bcolors.ENDC + "Answer content: " + bcolors.BOLD + item.description.text + bcolors.ENDC)
+
+                print(bcolors.ENDC)
 
         print('----------------------------------------------------------------------------')
