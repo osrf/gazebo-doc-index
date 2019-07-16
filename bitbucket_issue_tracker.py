@@ -15,18 +15,26 @@ args = parser.parse_args()
 rake = Rake(min_length = args.min_keyw_length, max_length= args.max_keyw_length, ranking_metric=Metric.WORD_DEGREE)
 
 for page in range(int(args.num_pages)):
+    print('Page ' + str(page+1))
     if not args.sort_by_updated:
         r = requests.get(url = "https://api.bitbucket.org/2.0/repositories/osrf/gazebo/issues?sort=-votes&page=" + str(page+1)) 
     else:
-        r = requests.get(url = "https://api.bitbucket.org/2.0/repositories/osrf/gazebo/issues&page=" + str(page+1)) 
+        r = requests.get(url = "https://api.bitbucket.org/2.0/repositories/osrf/gazebo/issues?page=" + str(page+1)) 
         
+    if not r.ok:
+        raise Exception("Request returned " + str(r.status_code) + " error.")
+    
     data = r.json()
+
     for i,j in enumerate(data['values']):
-        print ("Issue title: " + str(page * 20 + i + 1) + ': ' + j['title'])
+
+        print (str(page * 20 + i + 1) + ': ' + "Issue title: " + j['title'] + " (#" + str(j['id']) + ")")
         print ('Votes: ' + str(j['votes']))
+
         if args.only_title:
             rake.extract_keywords_from_text(j['title'])
-            keyw_title = rake.get_ranked_phrases_with_scores()
+            keyw_title = rake.get_ranked_phrases()
+            print("Keywords from issue title:")
             print(keyw_title)
         
         elif args.with_comments:
@@ -38,8 +46,10 @@ for page in range(int(args.num_pages)):
             keyw_title_content = rake.get_ranked_phrases_with_scores()
             top_keyw_title_content = [a for a in keyw_title_content if a[0] >= args.min_score]
 
-            print("Keywords from title and content: ")
-            print(top_keyw_title_content)
+            print("Keywords from title and content: \n")
+            if (len(top_keyw_title_content) > 0):
+                print(list(zip(*top_keyw_title_content))[1])
+            print("\n")
             
             for k in output['values']:
                 comments += str(k['content']['raw'])
@@ -48,8 +58,10 @@ for page in range(int(args.num_pages)):
             keyw_comments = rake.get_ranked_phrases_with_scores()
             top_keyw_comments = [a for a in keyw_comments if a[0]>= args.min_score]
             
-            print("Keywords from comments")
-            print(top_keyw_comments)
+            print("Keywords from comments:\n")
+            if (len(top_keyw_comments) > 0):
+                print(list(zip(*top_keyw_comments))[1])
+            print("\n")
         else:
             rake.extract_keywords_from_text(j['title'] + " " + j['content']['raw'])
             keyw_title_content = rake.get_ranked_phrases_with_scores()
