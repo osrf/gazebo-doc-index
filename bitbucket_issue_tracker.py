@@ -12,8 +12,9 @@ parser.add_argument('--sort_by_updated', default=False, action='store_true', hel
 parser.add_argument('--num_pages', default=1, help="Number of pages for which results will be showed. (Each page shows 25 results)")
 args = parser.parse_args()
 
+rake = Rake(min_length = args.min_keyw_length, max_length= args.max_keyw_length, ranking_metric=Metric.WORD_DEGREE)
+
 for page in range(int(args.num_pages)):
-    rake = Rake(min_length = args.min_keyw_length, max_length= args.max_keyw_length, ranking_metric=Metric.WORD_DEGREE)
     if not args.sort_by_updated:
         r = requests.get(url = "https://api.bitbucket.org/2.0/repositories/osrf/gazebo/issues?sort=-votes&page=" + str(page+1)) 
     else:
