@@ -7,6 +7,8 @@ parser = argparse.ArgumentParser()
 parser.add_argument('--min_keyw_length', default=1, help="Minimum length of an extracted keyword phrase.")
 parser.add_argument('--max_keyw_length', default=4, help="Maximum length of an extracted keyword phrase.")
 parser.add_argument('--min_score', default=4, help="Minimum required score of an extracted keyword.")
+parser.add_argument('--default_sort', default=False, action='store_true', help="To sort issues based on post activity")
+parser.add_argument('--answers_sort', default=False, action='store_true', help="To sort issues based on most answered")
 parser.add_argument('--print_content', default=False, action='store_true', help="To print content of question and answers")
 parser.add_argument('--num_pages', default=1, help="Number of pages for which results will be showed. (Each page shows 30 results)")
 
@@ -24,7 +26,15 @@ args = parser.parse_args()
 rake = Rake(min_length = args.min_keyw_length, max_length= args.max_keyw_length, ranking_metric=Metric.WORD_DEGREE)
 
 for page in range(int(args.num_pages)):
-    req = requests.get('http://answers.gazebosim.org/questions/scope:all/sort:votes-desc/page:'+ str(page+1) + '/')
+    if not args.default_sort and not args.answers_sort:
+        req = requests.get('http://answers.gazebosim.org/questions/scope:all/sort:votes-desc/page:'+ str(page+1) + '/')
+        print("Entries sorted based on votes: ")
+    elif args.answers_sort:
+        print("Entries sorted based on most-answered: ")
+        req = requests.get('http://answers.gazebosim.org/questions/scope:all/sort:answers-desc/page:'+ str(page+1) + '/')
+    elif args.default_sort:
+        print("Entries sorted based on activity: ")
+        req = requests.get('http://answers.gazebosim.org/questions/scope:all/sort:activity-desc/page:'+ str(page+1) + '/')
 
     if not req.ok:
         raise Exception(bcolors.FAIL + "Request returned " + str(req.status_code) + " error." + bcolors.ENDC)
