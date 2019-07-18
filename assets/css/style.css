@@ -93,6 +93,10 @@ h1 {
   font-weight: 300;
 }
 
+.cat-ol {
+  margin-top: 20px;
+}
+
 .cat-ol li{
   color: #428bca;
   font-size: 24px;
@@ -102,6 +106,14 @@ h1 {
 .cat-title {
   color: #428bca;
   font-weight: 300;
+}
+
+.cat-card {
+  min-height: 160px;
+}
+
+.cat-desc {
+  margin-top: 12px;
 }
 
 .item-title {
