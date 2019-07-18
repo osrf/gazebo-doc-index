@@ -12,8 +12,8 @@ layout: "wrapper"
     <div class="row">
         <ol class="cat-ol" start="0">
             {% for cat in site.categories %}
-                <div class="col-xs-11 col-md-4" style="min-height: 160px">
-                    <li><a style="text-decoration: none" href="{{cat.url | prepend: site.baseurl}}"><h3 class="cat-title">{{cat.title}}</h3></a></li>
+                <div class="col-xs-11 col-md-4 cat-card">
+                    <li><a style="text-decoration: none" href="{{cat.url | prepend: site.baseurl}}"><span class="cat-title">{{cat.title}}</span></a></li>
                     <p class="cat-desc">{{cat.desc}}</p>
                 </div>
             {% endfor %}
