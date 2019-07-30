@@ -50,3 +50,5 @@ defaults:
       type: "categories"
     values:
       layout: "category"
+
+exclude: ['suggestions-tool']
