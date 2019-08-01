@@ -2,7 +2,7 @@ from flask import Flask, render_template, request
 from rake_nltk import Rake, Metric
 import requests
 import numpy as np
-import ast
+import ast, os
 
 rake = Rake(min_length = 1, max_length= 4, ranking_metric=Metric.WORD_DEGREE)
 
@@ -16,7 +16,7 @@ def index():
 
 @app.route("/issues")
 def issues():
-    bb_completed = np.loadtxt('bitbucket_issues_completed.txt', dtype=int)
+    bb_completed = np.loadtxt(os.path.join(app.root_path, 'bitbucket_issues_completed.txt'), dtype=int)
 
     page = request.args.get('page')
     

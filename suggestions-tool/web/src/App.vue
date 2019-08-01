@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <h2 style="line-height:3px">GAZEBO DOCUMENTATION INDEX</h2>
+    <h2>GAZEBO DOCUMENTATION INDEX</h2>
     <h3>BITBUCKET ISSUE TRACKER</h3>
     <br>
     <router-view/>
