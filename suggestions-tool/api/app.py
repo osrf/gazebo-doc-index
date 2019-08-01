@@ -2,9 +2,14 @@ from flask import Flask, render_template, request
 from rake_nltk import Rake, Metric
 import requests
 import numpy as np
-import ast
+import ast, os, nltk, re
 
-rake = Rake(min_length = 1, max_length= 4, ranking_metric=Metric.WORD_DEGREE)
+# stop words: set of words to be excluded from consideration while generating keywords
+stopwords = nltk.corpus.stopwords.words('english')
+newStopWords = ['http','https','://','```','~~~','///']
+stopwords.extend(newStopWords)
+
+rake = Rake(min_length = 1, max_length= 4, ranking_metric=Metric.WORD_DEGREE, stopwords=stopwords)
 
 app = Flask(__name__,
             static_folder = "../web/dist/static",
@@ -16,7 +21,7 @@ def index():
 
 @app.route("/issues")
 def issues():
-    bb_completed = np.loadtxt('bitbucket_issues_completed.txt', dtype=int)
+    bb_completed = np.loadtxt(os.path.join(app.root_path, 'bitbucket_issues_completed.txt'), dtype=int)
 
     page = request.args.get('page')
     
@@ -32,11 +37,14 @@ def issues():
     
     data = r.json()
 
+    hexaPattern = re.compile(r'0x0*[1-9a-fA-F][0-9a-fA-F]*') # regep for hex code
+    numberRegExp = '\d{1,10}' # regexp for 2-10 digit numbers
+
     for i,j in enumerate(data['values']):
     
         rake.extract_keywords_from_text(j['title'] + " " + j['content']['raw'])
         keyw_title_content = rake.get_ranked_phrases_with_scores()
-        top_keyw_title_content = [a for a in keyw_title_content if a[0] >= 4]
+        top_keyw_title_content = [a for a in keyw_title_content if (a[0] >= 4 and not re.search(hexaPattern, a[1]) and not re.search(numberRegExp, a[1]))]
         
         if (len(top_keyw_title_content) > 0):
             data['values'][i]['keywords'] = list(zip(*top_keyw_title_content))[1]
@@ -50,12 +58,8 @@ def issues():
 
 @app.route("/issues/update", methods=["POST"])
 def update():
-    print("lets update")
     newly_marked = ((ast.literal_eval(request.data.decode()))['newly_marked'])
     unmarked = ((ast.literal_eval(request.data.decode()))['unmarked'])
-    
-    print(newly_marked)
-    print(unmarked)
 
     bb_completed = np.loadtxt('bitbucket_issues_completed.txt', dtype=int)
     bb_completed = bb_completed.tolist()
@@ -65,7 +69,6 @@ def update():
     else:
         bb_completed = list(set(bb_completed) - set(unmarked))
     bb_completed += newly_marked
-    print(bb_completed)
 
     np.savetxt('bitbucket_issues_completed.txt', np.array(bb_completed), fmt='%d')
     return ''
