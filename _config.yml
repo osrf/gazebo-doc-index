@@ -17,7 +17,7 @@ title: Gazebo documentation index
 email: your-email@example.com
 description: >- # this means to ignore newlines until "baseurl:"
   A documentation index for Gazebo  - containing learning resources for Gazebo from all over the internet.
-baseurl: "/gz-bigindex" # the subpath of your site, e.g. /blog
+baseurl: "/gazebo-doc-index" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: jekyllrb
 github_username:  jekyll

@@ -18,7 +18,7 @@ python3 -m pip install flask numpy rake-ntlk requests
 ### How to run locally:
 
 ```
-cd gz-bigindex/suggestions-tool/web
+cd gazebo-doc-index/suggestions-tool/web
 npm install
 npm run build
 cd ../api

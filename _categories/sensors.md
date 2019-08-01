@@ -1,6 +1,6 @@
 ---
 # Contribution guidelines:
-# https://github.com/osrf/gz-bigindex/blob/master/CONTRIBUTING.md 
+# https://github.com/osrf/gazebo-doc-index/blob/master/CONTRIBUTING.md 
 
 title: "Sensors: The sensor catalogue"
 desc: "How to add already implemented sensors (camera, lasers, IMU, ...) to the gazebo models."

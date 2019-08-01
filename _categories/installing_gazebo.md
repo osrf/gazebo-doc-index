@@ -1,6 +1,6 @@
 ---
 # Contribution guidelines:
-# https://github.com/osrf/gz-bigindex/blob/master/CONTRIBUTING.md 
+# https://github.com/osrf/gazebo-doc-index/blob/master/CONTRIBUTING.md 
 
 title: "Installing the Gazebo simulator"
 desc: "Links related to the Gazebo's installation instructions for different supported platforms"

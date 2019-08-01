@@ -15,7 +15,7 @@ layout: "wrapper"
             <h1>{{page.title}}</h1>
             <hr>
             <div class="col-md-offset-9 col-xs-offset-8">
-                <a href="https://github.com/osrf/gz-bigindex/edit/master/{{page.path}}">
+                <a href="https://github.com/osrf/gazebo-doc-index/edit/master/{{page.path}}">
                 <i class="glyphicon glyphicon-edit" style="margin-right:3px"></i>
                 Suggest edits
                 </a>
@@ -28,9 +28,7 @@ layout: "wrapper"
             <ul>
                 <div class="col-xs-12 item-container">
                     {% for item in subcategory.items %} 
-                    <div style="margin-bottom: 15px">
-
-                                      
+                    <div class="index-item">
                     <li>
                         <p class="item-title">
                             {% if item.star %}
