@@ -11,8 +11,8 @@ Status: Under development
 
 #### Setup
 ```
-git clone https://github.com/osrf/gz-bigindex.git
-cd gz-bigindex
+git clone https://github.com/osrf/gazebo-doc-index.git
+cd gazebo-doc-index
 bundle exec jekyll serve
 ```
 
@@ -30,5 +30,5 @@ This folder contains HTML code for the navbar and the footer.
 
 ## Contribution guidelines
 
-Refer to [CONTRIBUTING.md](https://github.com/osrf/gz-bigindex/blob/master/CONTRIBUTING.md) for information about how to contribute to the project.
+Refer to [CONTRIBUTING.md](https://github.com/osrf/gazebo-doc-index/blob/master/CONTRIBUTING.md) for information about how to contribute to the project.
 

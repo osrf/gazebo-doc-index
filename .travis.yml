@@ -8,7 +8,7 @@ before_install:
 
 install: gem install jekyll html-proofer
 script: 
-  - jekyll build && htmlproofer ./_site --url-ignore "/gz-bigindex/*/"
+  - jekyll build && htmlproofer ./_site --url-ignore "/gazebo-doc-index/*/"
   - bundle exec rspec --format doc
 
 # branch whitelist, only for GitHub Pages

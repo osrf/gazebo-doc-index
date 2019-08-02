@@ -114,7 +114,7 @@ Contributions can be made by updating the index items, their descriptions,
 categories or subcategories, using pull requests. 
 
 For information about how to contribute to the project, contribution guidelines
-can be referred to [here](https://github.com/osrf/gz-bigindex/blob/master/CONTRIBUTING.md).
+can be referred to [here](https://github.com/osrf/gazebo-doc-index/blob/master/CONTRIBUTING.md).
 
 ### 4.4 User interface
 
@@ -196,7 +196,7 @@ subcategories:
 
 ### 4.6 Hosting
 
-The website is being served using Github pages. It can be accessed [here](https://osrf.github.io/gz-bigindex/).
+The website is being served using Github pages. It can be accessed [here](https://osrf.github.io/gazebo-doc-index/).
 
 
 ## 5. Progress
