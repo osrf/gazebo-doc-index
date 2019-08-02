@@ -6,4 +6,5 @@ bin/
 include/
 lib/
 node_modules/
+.vscode/
 *.pyc
