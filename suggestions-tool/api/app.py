@@ -15,6 +15,13 @@ app = Flask(__name__,
             static_folder = "../web/dist/static",
             template_folder = "../web/dist/")
 
+def clean_characters(keywords_list):
+    # bad_chars = ['<','>','[',']','#','!','(',')','`','"','_','*','@','%','^']
+    keywords_list = list(keywords_list)
+    for index,keyword in enumerate(keywords_list):
+        keywords_list[index] = re.sub('[^A-Za-z0-9 ]+', '', keyword)
+    return keywords_list
+
 @app.route("/")
 def index():
     return render_template('index.html')
@@ -47,7 +54,7 @@ def issues():
         top_keyw_title_content = [a for a in keyw_title_content if (a[0] >= 4 and not re.search(hexaPattern, a[1]) and not re.search(numberRegExp, a[1]))]
         
         if (len(top_keyw_title_content) > 0):
-            data['values'][i]['keywords'] = list(zip(*top_keyw_title_content))[1]
+            data['values'][i]['keywords'] = clean_characters(list(zip(*top_keyw_title_content))[1])
 
     if (isinstance(bb_completed.tolist(), int)):
         data['bb_completed'] = [bb_completed.tolist()]
