@@ -109,11 +109,15 @@ h1 {
 }
 
 .cat-card {
-  min-height: 160px;
+  min-height: 170px;
 }
 
 .cat-desc {
   margin-top: 12px;
+}
+
+.index-item {
+  margin-bottom: 15px;
 }
 
 .item-title {

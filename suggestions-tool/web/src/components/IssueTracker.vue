@@ -1,21 +1,21 @@
 <template>
   <div class="hello">
     <div style="margin-bottom: 10px">
-      <button :disabled="sort=='votes'" @click="sortVoted()">SORT BY VOTED</button>
-      <button :disabled="sort=='updated'" @click="sortUpdated()">SORT BY UPDATED</button>
+      <button :disabled="(sort=='votes')||loading||error" @click="sortVoted()">SORT BY VOTED</button>
+      <button :disabled="sort=='updated'||loading||error" @click="sortUpdated()">SORT BY UPDATED</button>
     </div>
     <div>
-      <input type="checkbox" v-model="showTitle">
+      <input type="checkbox" :disabled="loading||error" v-model="showTitle">
       Show title
 
-      <input type="checkbox" v-model="showContent">
+      <input type="checkbox" :disabled="loading||error" v-model="showContent">
       Show content
 
-      <input type="checkbox" v-model="showKeywords">
+      <input type="checkbox" :disabled="loading||error" v-model="showKeywords">
       Show keywords
     <span style="float:right;">
-      <input type="button" :disabled="page==1" value="Previous" v-on:click="previous()">
-      <input type="button" value="Next" v-on:click="next()">
+      <input type="button" :disabled="page==1||loading||error" value="Previous" v-on:click="previous()">
+      <input type="button" :disabled="loading||error" value="Next" v-on:click="next()">
       <div style="margin-top: 5px">Page: {{page}}</div>
     </span>
     </div>
@@ -38,11 +38,14 @@
           </div>
       </li><hr>
     </ul>
-    <div v-if="loading" style="margin: 100px;">
+    <div v-if="loading" class="status">
       <b>Loading..Please wait</b>
     </div>
-    <div style="margin-bottom: 10%">
-      <button v-if="!loading" v-on:click="update()" style="text-align:center">UPDATE COMPLETED ISSUES</button>
+    <div v-if="error" class="status error">
+      <b>{{errorMsg}}</b>
+    </div>
+    <div class="update-msg">
+      <button :disabled="loading||error" v-if="!loading" v-on:click="update()" style="text-align:center">UPDATE COMPLETED ISSUES</button>
       <div v-if="success" style="color: #42BA94;text-align:center">Successfuly updated!</div>
 
     </div>
@@ -66,7 +69,9 @@ export default {
       page: null,
       marked: [],
       sort: null,
-      success: false
+      success: false,
+      error: false,
+      errorMsg: ''
     }
   },
   methods: {
@@ -129,9 +134,7 @@ export default {
       .then(response => response.json())
       .then(data => {
         that.issues = data.values
-        console.log(data)
         that.page = data.page
-        that.loading = false
         that.marked = data.bb_completed
         for (var issue in that.issues) {
           if (data.bb_completed.includes(that.issues[issue].id)) {
@@ -139,6 +142,13 @@ export default {
             that.checkedIssues.push(that.issues[issue].id)
           }
         }
+        that.loading = false
+      })
+      .catch(err => {
+        that.loading = false
+        that.error = true
+        that.errorMsg = err
+        console.error(err)
       })
   },
   watch: {
@@ -164,5 +174,16 @@ li {
 }
 a {
   color: #42b983;
+}
+.status {
+  margin: 10%;
+}
+
+.error {
+  color: rgb(192, 38, 38);
+}
+
+.status-msg {
+  margin-bottom: 10%
 }
 </style>

@@ -1,16 +1,16 @@
 ## Contribution guidelines
 
 This document contains guidelines for contributing to Gazebo's [documentation
-index](https://osrf.github.io/gz-bigindex/).
+index](https://osrf.github.io/gazebo-doc-index/).
 
 ### Table of contents
 
-- [About](https://github.com/osrf/gz-bigindex/blob/master/CONTRIBUTING.md#about)
-- [Repository structure](https://github.com/osrf/gz-bigindex/blob/master/CONTRIBUTING.md#repository-structure)
-- [How to contribute](https://github.com/osrf/gz-bigindex/blob/master/CONTRIBUTING.md#how-to-contribute)
-  - [Index structure](https://github.com/osrf/gz-bigindex/blob/master/CONTRIBUTING.md#index-structure)
-  - [Preview changes](https://github.com/osrf/gz-bigindex/blob/master/CONTRIBUTING.md#preview-changes)
-  - [Test the changes](https://github.com/osrf/gz-bigindex/blob/master/CONTRIBUTING.md#test-the-changes)
+- [About](https://github.com/osrf/gazebo-doc-index/blob/master/CONTRIBUTING.md#about)
+- [Repository structure](https://github.com/osrf/gazebo-doc-index/blob/master/CONTRIBUTING.md#repository-structure)
+- [How to contribute](https://github.com/osrf/gazebo-doc-index/blob/master/CONTRIBUTING.md#how-to-contribute)
+  - [Index structure](https://github.com/osrf/gazebo-doc-index/blob/master/CONTRIBUTING.md#index-structure)
+  - [Preview changes](https://github.com/osrf/gazebo-doc-index/blob/master/CONTRIBUTING.md#preview-changes)
+  - [Test the changes](https://github.com/osrf/gazebo-doc-index/blob/master/CONTRIBUTING.md#test-the-changes)
 
 ### About
 
@@ -146,7 +146,7 @@ subcategories:
 ---
 ```
 
-Rendering of the above category data can be seen [here](https://osrf.github.io/gz-bigindex/categories/models_import.html).
+Rendering of the above category data can be seen [here](https://osrf.github.io/gazebo-doc-index/categories/models_import.html).
 
 #### Preview changes
 
@@ -154,12 +154,12 @@ Before opening a pull request, proposed changes to the documentation index can
 be previewed by serving the jekyll project on a local server.
 
 ```
-cd gz-bigindex
+cd gazebo-doc-index
 jekyll serve
 ```
 
 For instructions to set up the jekyll project on your machine, refer to the
-repository's [README](https://github.com/osrf/gz-bigindex#getting-started).
+repository's [README](https://github.com/osrf/gazebo-doc-index#getting-started).
 
 ####  Test the changes
 
@@ -167,6 +167,6 @@ Automated tests for validating index structure integrity and external links can 
 
 ```bundle install``` (first time)
 ```bundle exec rspec --format doc``` (index integrity tests)
-```jekyll build && htmlproofer ./_site --url-ignore "/gz-bigindex/*/"``` ([html-proofer](https://github.com/gjtorikian/html-proofer) tests)
+```jekyll build && htmlproofer ./_site --url-ignore "/gazebo-doc-index/*/"``` ([html-proofer](https://github.com/gjtorikian/html-proofer) tests)
 
 Note: Pull requests can't be merged if they don't pass the automated tests.
