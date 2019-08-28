@@ -8,7 +8,7 @@ before_install:
 
 install: gem install jekyll html-proofer
 script: 
-  - jekyll build
+  - bundle exec jekyll build
   - bundle exec htmlproofer ./_site --url-ignore "/gazebo-doc-index/*/"  
   - bundle exec rspec --format doc
 
