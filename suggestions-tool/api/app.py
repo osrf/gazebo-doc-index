@@ -4,6 +4,7 @@ import requests
 import numpy as np
 import ast, os, nltk, re, db
 
+nltk.download('stopwords')
 # stop words: set of words to be excluded from consideration while generating keywords
 stopwords = nltk.corpus.stopwords.words('english')
 newStopWords = ['http','https','://','```','~~~','///']
