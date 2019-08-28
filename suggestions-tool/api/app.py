@@ -5,6 +5,7 @@ import numpy as np
 import ast, os, nltk, re, db
 
 nltk.download('stopwords')
+nltk.download('punkt')
 # stop words: set of words to be excluded from consideration while generating keywords
 stopwords = nltk.corpus.stopwords.words('english')
 newStopWords = ['http','https','://','```','~~~','///']
@@ -97,4 +98,5 @@ def update():
 def favicon():
     return 'http://gazebosim.org/assets/gazebo-0b2620068a8c04a28f40aa610daa1ce7d82cfb61be5d89eedf68fce9d11462dd.ico'
 if __name__ == "__main__":
-    app.run(debug=True)
+    port = int(os.environ.get('PORT', 5000))
+    app.run(host='0.0.0.0', port=port)
