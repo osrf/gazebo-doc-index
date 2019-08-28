@@ -23,7 +23,7 @@
     <ul v-for="issue in issues" :key="issue.id">
       <li>
         <div v-bind:style= "[marked.includes(issue.id)|| checkedIssues.includes(issue.id) ? {'color': 'lightgrey'} : {}]">
-          <input type="checkbox" id="jack" :value="issue.id" v-model="checkedIssues">
+          <!-- <input type="checkbox" id="jack" :value="issue.id" v-model="checkedIssues"> -->
           <a :href="issue.links.html.href" target="blank"><b>#{{issue.id}}</b></a>
           <br><br>
           <span v-if="showTitle">
@@ -33,8 +33,15 @@
             <b>Issue-content: </b>{{issue.content.raw}}<br>
           </span>
           <span v-if="showKeywords">
-            <b>Title and description keywords: </b><span v-if="issue.keywords.length>0" v-for="keyw in issue.keywords" :key="keyw" style="background: rgba(221, 183, 189, 0.5);margin:3px;line-height:25px;padding:2px;border-radius:5px">{{keyw}}</span>
+            <b>Title and description keywords: </b><span v-if="issue.keywords.length>0" v-for="(keyw,indx) in issue.keywords" :key="indx" style="background: rgba(221, 183, 189, 0.5);margin:3px;line-height:25px;padding:2px;border-radius:5px">{{keyw}}</span>
           </span>
+          </div>
+          <br>
+          <div>Covered in:
+            <select v-model="issue.index_category">
+              <option selected :value=undefined> -- Select category -- </option>
+              <option v-for="(category,id) in category_list" :key="id" :value="category">{{category}}</option>
+            </select>
           </div>
       </li><hr>
     </ul>
@@ -46,17 +53,15 @@
     </div>
     <div class="update-msg">
       <button :disabled="loading||error" v-if="!loading" v-on:click="update()" style="text-align:center">UPDATE COMPLETED ISSUES</button>
-      <div v-if="success" style="color: #42BA94;text-align:center">Successfuly updated!</div>
-
+      <div v-if="status" style="color: #42BA94;text-align:center">{{status_msg}}</div>
     </div>
-
   </div>
 </template>
 
 <script>
 import axios from 'axios'
 export default {
-  name: 'HelloWorld',
+  name: 'IssueTracker',
   data () {
     return {
       issues: [],
@@ -69,24 +74,53 @@ export default {
       page: null,
       marked: [],
       sort: null,
-      success: false,
+      status: false,
       error: false,
-      errorMsg: ''
+      errorMsg: '',
+      category_list: [],
+      status_msg: ''
     }
   },
   methods: {
     update () {
-      var newlyMarked = this.checkedIssues.filter(x => !this.marked.includes(x))
-      var unmarked = this.marked.filter(x => !this.checkedIssues.includes(x) && this.issues.map(y => y.id).includes(x))
-      console.log(unmarked)
+      // eslint-disable-next-line
+      Array.prototype.diff = function (a) {
+        return this.filter(function (i) { return a.indexOf(i) < 0 })
+      }
+
       var that = this
-      axios.post(this.url + '/update', {newly_marked: newlyMarked, unmarked: unmarked})
-        .then(data => {
-          console.log(data)
-          setTimeout(this.refresh, 1000)
-          that.success = true
-        })
-        .catch(error => console.error(error))
+      var tmp = this.issues.filter(function (el) {
+        return (Object.keys(el).indexOf('index_category') !== -1 && el.index_category !== undefined)
+      })
+      var nowMarked = (tmp.map(el => el.id))
+      var nowMarkedCategories = (tmp.map(function (el) {
+        return { id: el.id, index_category: el.index_category }
+      }))
+
+      var changedCatsArrObj = []
+      this.marked.forEach(function (el) {
+        var found = that.issues.find(er => er.id === el[0])
+        if (found) {
+          if (el[1] !== found.index_category) {
+            changedCatsArrObj.push({id: el[0], new_category: found.index_category})
+          }
+        }
+      })
+
+      var newlyMarked = nowMarked.diff(this.checkedIssues)
+      var newlyMarkedArrObj = nowMarkedCategories.filter(el => newlyMarked.includes(el.id))
+      if (newlyMarkedArrObj.length > 0 || changedCatsArrObj.length > 0) {
+        axios.post(this.url + '/update', {newly_marked: newlyMarkedArrObj, changed_categories: changedCatsArrObj})
+          .then(data => {
+            setTimeout(this.refresh, 300)
+            that.status = true
+            that.status_msg = 'Successfuly updated!'
+          })
+          .catch(error => console.error(error))
+      } else {
+        that.status = true
+        that.status_msg = 'There are no changes to update!'
+      }
     },
     refresh () {
       this.$router.go()
@@ -111,12 +145,12 @@ export default {
     }
   },
   created () {
-    console.log()
-    if (process.env.NODE_ENV == 'development') { // eslint-disable-line
+    if (process.env.NODE_ENV === 'development') {
       this.url = 'http://127.0.0.1:5000/issues'
     } else {
       this.url = '/issues'
     }
+
     var that = this
     if (typeof this.$route.query.page !== 'undefined') {
       this.page = this.$route.query.page
@@ -133,13 +167,18 @@ export default {
     fetch(this.url + '?page=' + this.page + '&sort=' + this.sort)
       .then(response => response.json())
       .then(data => {
+        that.category_list = data.category_list
         that.issues = data.values
         that.page = data.page
         that.marked = data.bb_completed
         for (var issue in that.issues) {
-          if (data.bb_completed.includes(that.issues[issue].id)) {
-            console.log(that.issues[issue].id)
+          var tmp
+          if (data.bb_completed.find(function (el) {
+            tmp = el[1]
+            return el[0] === that.issues[issue].id
+          })) {
             that.checkedIssues.push(that.issues[issue].id)
+            that.issues[issue].index_category = tmp
           }
         }
         that.loading = false
@@ -186,4 +225,15 @@ a {
 .status-msg {
   margin-bottom: 10%
 }
+
+.update-msg {
+  text-align: center;
+  margin:4%;
+  font-size: 18px;
+}
+
+.update-msg > button {
+  margin-bottom: 3%;
+}
+
 </style>

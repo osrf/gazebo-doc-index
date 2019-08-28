@@ -1,0 +1,7 @@
+Flask==1.1.1
+html5lib==0.999
+httplib2==0.9.1
+nltk==3.4.4
+numpy==1.16.4
+requests==2.9.1
+rake-nltk==1.0.4
