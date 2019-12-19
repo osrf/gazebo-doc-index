@@ -2,18 +2,31 @@ from flask import Flask, render_template, request
 from rake_nltk import Rake, Metric
 import requests
 import numpy as np
-import ast, os, nltk, re
+import ast, os, nltk, re, db
 
+nltk.download('stopwords')
+nltk.download('punkt')
 # stop words: set of words to be excluded from consideration while generating keywords
 stopwords = nltk.corpus.stopwords.words('english')
 newStopWords = ['http','https','://','```','~~~','///']
 stopwords.extend(newStopWords)
 
 rake = Rake(min_length = 1, max_length= 4, ranking_metric=Metric.WORD_DEGREE, stopwords=stopwords)
-
+cursor = db.connect()
 app = Flask(__name__,
             static_folder = "../web/dist/static",
             template_folder = "../web/dist/")
+
+search_dir = os.path.join(app.root_path, '../../_categories/')
+files =  os.listdir(search_dir)
+files = [os.path.join(search_dir, f) for f in files] # add path to each file
+
+category_list = []
+for file in files:
+    slash_pos = file.rfind('/')
+    category_string = file[slash_pos+1:-3]
+    if category_string != 'all_links':
+        category_list.append(category_string)
 
 def clean_characters(keywords_list):
     # bad_chars = ['<','>','[',']','#','!','(',')','`','"','_','*','@','%','^']
@@ -28,7 +41,8 @@ def index():
 
 @app.route("/issues")
 def issues():
-    bb_completed = np.loadtxt(os.path.join(app.root_path, 'bitbucket_issues_completed.txt'), dtype=int)
+    cursor.execute('select * from issues')
+    bb_completed = cursor.fetchall()
 
     page = request.args.get('page')
     
@@ -56,32 +70,33 @@ def issues():
         if (len(top_keyw_title_content) > 0):
             data['values'][i]['keywords'] = clean_characters(list(zip(*top_keyw_title_content))[1])
 
-    if (isinstance(bb_completed.tolist(), int)):
-        data['bb_completed'] = [bb_completed.tolist()]
-    else:
-        data['bb_completed'] = bb_completed.tolist()
+    data['bb_completed'] = bb_completed
+    data['category_list'] = category_list
         
     return data
 
 @app.route("/issues/update", methods=["POST"])
 def update():
+    try:
+        changed_categories = ((ast.literal_eval(request.data.decode()))['changed_categories'])
+        for category in changed_categories: 
+            if ('new_category' in category):
+                cursor.execute('UPDATE issues SET index_category= \'' + category['new_category'] + '\' WHERE issue_id=' + str(category['id']))
+            else:
+                cursor.execute('DELETE FROM issues WHERE issue_id=' + str(category['id']))
+    except Exception:
+        print('Exception at updating')
+    
     newly_marked = ((ast.literal_eval(request.data.decode()))['newly_marked'])
-    unmarked = ((ast.literal_eval(request.data.decode()))['unmarked'])
+    if (len(newly_marked) > 0):
+        args_str = b','.join(cursor.mogrify("(%s,%s)", list(category.values())[::-1] if type(list(category.values())[0]) is str else list(category.values()))  for category in newly_marked)
+        cursor.execute("INSERT INTO issues VALUES " + args_str.decode()) 
 
-    bb_completed = np.loadtxt('bitbucket_issues_completed.txt', dtype=int)
-    bb_completed = bb_completed.tolist()
-
-    if (isinstance(bb_completed, int)):
-        bb_completed = list(set([bb_completed]) - set(unmarked))
-    else:
-        bb_completed = list(set(bb_completed) - set(unmarked))
-    bb_completed += newly_marked
-
-    np.savetxt('bitbucket_issues_completed.txt', np.array(bb_completed), fmt='%d')
     return ''
 
 @app.route('/favicon.ico')
 def favicon():
     return 'http://gazebosim.org/assets/gazebo-0b2620068a8c04a28f40aa610daa1ce7d82cfb61be5d89eedf68fce9d11462dd.ico'
 if __name__ == "__main__":
-    app.run(debug=True)
+    port = int(os.environ.get('PORT', 5000))
+    app.run(host='0.0.0.0', port=port)
