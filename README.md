@@ -1,8 +1,11 @@
 # Gazebo Documentation Index
 
 This repository contains code for Gazebo's documentation index.
+The documentation index can be accessed at https://osrf.github.io/gazebo-doc-index/.
 
-Status: Under development
+Status: Alpha version released
+
+More information about the project can be found in the design specification document [`design_spec.md`](https://github.com/osrf/gazebo-doc-index/blob/master/design_spec.md).
 
 ## Getting started
 
