@@ -1,17 +1,17 @@
 # Design Specification Document: Gazebo Documentation Index
 
 ## Table of contents
-- [Introduction]()
-- [Background]()
-- [Purpose]()
-- [Implementation]()
-  - [Technology stack]()
-  - [Index structure]()
-  - [Collaboration and Maintenance]()
-  - [User interface]()
-  - [Repository structure]()
-  - [Hosting]()
-- [Progress]()
+- [Introduction](https://github.com/osrf/gazebo-doc-index/blob/master/design_spec.md#1-introduction)
+- [Background](https://github.com/osrf/gazebo-doc-index/blob/master/design_spec.md#2-background)
+- [Purpose](https://github.com/osrf/gazebo-doc-index/blob/master/design_spec.md#3-purpose)
+- [Implementation](https://github.com/osrf/gazebo-doc-index/blob/master/design_spec.md#4-implementation)
+  - [Technology stack](https://github.com/osrf/gazebo-doc-index/blob/master/design_spec.md#41-technology-stack)
+  - [Index structure](https://github.com/osrf/gazebo-doc-index/blob/master/design_spec.md#42-index-structure)
+  - [Collaboration and Maintenance](https://github.com/osrf/gazebo-doc-index/blob/master/design_spec.md#43-collaboration-and-maintenance)
+  - [User interface](https://github.com/osrf/gazebo-doc-index/blob/master/design_spec.md#44-user-interface)
+  - [Repository structure](https://github.com/osrf/gazebo-doc-index/blob/master/design_spec.md#45-repository-structure)
+  - [Hosting](https://github.com/osrf/gazebo-doc-index/blob/master/design_spec.md#46-hosting)
+- [Progress](https://github.com/osrf/gazebo-doc-index/blob/master/design_spec.md#5-progress)
 
 
 ## 1. Introduction
@@ -26,13 +26,13 @@ in the form of a documentation index that contains links to the content where
 the respective information is hosted. 
 
 ## 2. Background
-At present, the learning resources for Gazebo are distributed over the internet
-in the form of Gazebo’s official documentation, the Q&A website and ROS-Answers.
-Some noteworthy help can be found through examples and explanations in the
-comments of Bitbucket issues and Gazebo’s API. There are also third-party
-sources that provide video tutorials and blog posts that are helpful in
-learning Gazebo. It can be a bit overwhelming to keep track of one’s learning
-when the content is distributed as in this case.
+At present, the learning resources for Gazebo are distributed over the internet - 
+the official documentation, the Q&A website and ROS-Answers. Some noteworthy
+help can also be found through examples and explanations in the comments of Bitbucket
+issues and Gazebo’s API. There are also third-party sources that provide video
+tutorials and blog posts that are helpful in learning Gazebo. It can be a bit
+overwhelming to keep track of one’s learning when the content is distributed
+as in this case.
 
 A documentation index is a platform where links to relevant learning resources
 for a software system are indexed to allow users to find any help at one place.
@@ -205,6 +205,8 @@ The website is being served using Github pages. It can be accessed [here](https:
 - [x]  Population of documentation index with some basic categories, subcategories and items.
 - [x]  'Suggest edits' button
 - [x]  Contribution guidelines
-- [ ]  Travis support for index integrity
-- [ ]  A more comprehensive set of index entries
-- [ ]  Alpha version launch
+- [x]  Travis support for index integrity
+- [x]  A more comprehensive set of index entries
+- [x]  Alpha version launch
+- [x]  A tool for suggesting index entries from Bitbucket issues
+- [ ]  Beta launch
