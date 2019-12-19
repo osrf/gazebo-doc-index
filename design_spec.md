@@ -208,5 +208,5 @@ The website is being served using Github pages. It can be accessed [here](https:
 - [x]  Travis support for index integrity
 - [x]  A more comprehensive set of index entries
 - [x]  Alpha version launch
-- [ ]  A tool for suggesting index entries from Bitbucket issues
+- [x]  A tool for suggesting index entries from Bitbucket issues
 - [ ]  Beta launch
