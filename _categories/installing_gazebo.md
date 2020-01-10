@@ -93,6 +93,12 @@ subcategories:
         url: 'http://wiki.ros.org/jade/Installation/OSX/Homebrew/Source'
         desc: 'How to compile Gazebo from source on a Mac distribution'
         star: false
+                
+      - title: 'Access Gazebo in Docker installed on a mac host'
+        url: 'https://github.com/osrf/docker_images/issues/55#issuecomment-572762297'
+        desc: 'How to access to Gazebo GUI in Mac when Gazebo is running on a docker container'
+        star: false
+       
 
   - title: "Gazebo + ROS installation on Ubuntu Linux"
     items:
