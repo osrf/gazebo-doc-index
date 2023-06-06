@@ -1,4 +1,4 @@
-# Gazebo Documentation Index
+# Gazebo-Classic Documentation Index
 
 This repository contains code for Gazebo's documentation index.
 The documentation index can be accessed at https://osrf.github.io/gazebo-doc-index/.
