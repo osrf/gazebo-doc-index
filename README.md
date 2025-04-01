@@ -1,3 +1,12 @@
+> [!CAUTION]
+> This repository contains Gazebo Classic documentation which is currently End Of Life
+> https://community.gazebosim.org/t/gazebo-classic-11-has-reached-end-of-life/3424
+>  
+> The base of software that build this kind of index for documentation might still work.
+> 
+> For a documentation index hosting information for the new version of Gazebo, please checkout https://github.com/j-rivero/gazebo-doc-index/
+
+
 # Gazebo-Classic Documentation Index
 
 This repository contains code for Gazebo's documentation index.
